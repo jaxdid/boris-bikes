@@ -1,13 +1,14 @@
 require 'docking_station'
 
 describe DockingStation do
-	#it 'respond_to release_bike' do
-		#expect(DockingStation).to responde_to(:release_bike)
-	#end
 	it { is_expected.to respond_to(:release_bike)} #ok
 
 	it 'releases working bike' do #ok
-		bike = subject.release_bike #subject refers to any instance in the specific class 
+		#docking_station3 = DockingStation.new
+    #bike3 = Bike.new
+    #docking_station3.dock(bike3)
+    #bike = docking_station3.release_bike
+    bike = subject.release_bike #subject refers to any instance in the specific class 
 		expect(bike).to be_working	# being describe (in this case DockingStation class)
 	end
 
@@ -26,17 +27,6 @@ describe DockingStation do
     expect(subject.bike).to eq bike
   end
 
-  
-
-  
-
-
-
-  #it 'checks if any bikes available' do
-    #expect { @docked_bike }.not_to raise_error
-   # expect { raise "No bikes available!" }.to raise_error(RuntimeError, "No bikes available!")
-  #end
-
   describe '#release_bike method' do
     it 'releases a bike' do
       bike = Bike.new
@@ -45,6 +35,9 @@ describe DockingStation do
     end
 
     it 'raises an error when there are no bikes available' do
+      #docking_station2 = DockingStation.new
+      #bike2 = Bike.new
+      #docking_station2.dock(bike2)
       expect { subject.release_bike }.to raise_error 'No bikes available'
     end
   end
