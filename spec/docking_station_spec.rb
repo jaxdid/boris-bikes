@@ -13,6 +13,20 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:bikes) }#ok
 
+  it { expect(subject.instance_variable_get(:@capacity)).to be_truthy }
+
+  it do
+    station = DockingStation.new
+    expect(station.instance_variable_get(:@capacity)).to eq 1
+  end
+
+  # context 'with parameters' do
+  #  let(:station) { DockingStation.new(10) }
+  #  it do
+  #    expect(station.instance_variable_get(:@capacity)).to eq 10
+  #  end
+  # end
+
   describe '#release_bike method' do
     it 'releases a bike' do
       bike = Bike.new
